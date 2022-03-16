@@ -1,8 +1,6 @@
 import { getRepository, Not, Repository } from 'typeorm';
 
-import Escala from '../entities/Escalas';
 import IPostoServicosRepository from '@modules/escala/repositories/IPostoServicosRepository';
-import ICreateEscalaDTO from '@modules/escala/dtos/ICreateEscalaDTO';
 import PostoServico from '../entities/PostoServico';
 import ICreatePostoServicoDTO from '@modules/escala/dtos/ICreatePostoServicoDTO';
 
@@ -13,10 +11,12 @@ class PostoServicosRepository implements IPostoServicosRepository {
   constructor() {
     this.ormRepository = getRepository(PostoServico);
   }
-  findById (id: number): Promise<PostoServico> {
-    throw new Error('Method not implemented.');
-  }
+  // findById (id: number): Promise<PostoServico> {
+  //   throw new Error('Method not implemented.');
+  // }
   public async create (postoServicoData: ICreatePostoServicoDTO): Promise<PostoServico> {
+    console.log(postoServicoData);
+
     const postoServico = this.ormRepository.create(postoServicoData);
 
     await this.ormRepository.save(postoServico);

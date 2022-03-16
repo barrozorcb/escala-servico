@@ -1,8 +1,5 @@
 export default interface ICreatePostoServicoDTO {
-  idPostoServico?: number;
-  nmPostoServico: string;
-  qtdPessoaDia: number;
-  stAtivo: boolean;
-  createdAt?: Date;
-  updatedAt?: Date;
+  nm_posto_servico: string;
+  qtd_pessoa_dia: number;
+  st_ativo: boolean;
 }

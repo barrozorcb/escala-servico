@@ -12,8 +12,8 @@ export class CreateTPostoServico1647348786884 implements MigrationInterface {
                         type: 'int',
                         isPrimary: true,
                         isUnique: true,
-                        generationStrategy: 'increment',
-                        default: 0
+                        isGenerated: true,
+                        generationStrategy: 'increment'
                     },
                     {
                         name: 'nm_posto_servico',
