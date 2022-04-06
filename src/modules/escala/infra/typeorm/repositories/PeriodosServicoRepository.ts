@@ -1,31 +1,23 @@
 import { getRepository, Not, Repository } from 'typeorm';
 
-import IPostoServicosRepository from '@modules/escala/repositories/IPostoServicosRepository';
 import PostoServico from '../entities/PostoServico';
-import ICreatePostoServicoDTO from '@modules/escala/dtos/ICreatePostoServicoDTO';
+import IPeriodosServicoRepository from '@modules/escala/repositories/IPeriodosServicoRepository';
+import PeriodoServico from '../entities/PeriodoServico';
 
-class PostoServicosRepository implements IPostoServicosRepository {
+class PeriodosServicoRepository implements IPeriodosServicoRepository {
 
-  private ormRepository: Repository<PostoServico>;
+  private ormRepository: Repository<PeriodoServico>;
 
   constructor() {
-    this.ormRepository = getRepository(PostoServico);
+    this.ormRepository = getRepository(PeriodoServico);
   }
 
-  public async create (postoServicoData: ICreatePostoServicoDTO): Promise<PostoServico> {
 
-    const postoServico = this.ormRepository.create(postoServicoData);
+  public async findAll (): Promise<PeriodoServico[]> {
 
-    await this.ormRepository.save(postoServico);
+    const periodosServico = await this.ormRepository.find({ select: ["id_periodo_servico", "tp_periodo_servico"] });
 
-    return postoServico;
-  }
-
-  public async findById (id: number): Promise<PostoServico | undefined> {
-
-    const postoServico = await this.ormRepository.findOne(id);
-
-    return postoServico;
+    return periodosServico;
   }
 
   // public async findByEmail(email: string): Promise<User | undefined> {
@@ -64,4 +56,4 @@ class PostoServicosRepository implements IPostoServicosRepository {
 
   // }
 }
-export default PostoServicosRepository;
+export default PeriodosServicoRepository;

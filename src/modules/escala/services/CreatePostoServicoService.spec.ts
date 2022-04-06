@@ -16,7 +16,8 @@ describe('CreateUser', () => {
     const postoServico = await createPostoServicoService.execute({
       nmPostoServico: 'Sentinela Posto 1',
       qtdPessoaDia: 3,
-      stAtivo: true
+      stAtivo: true,
+      idPeriodoServico: 1
     });
 
     expect(postoServico).toHaveProperty('id');

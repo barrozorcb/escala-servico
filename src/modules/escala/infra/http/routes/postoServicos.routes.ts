@@ -12,7 +12,8 @@ postoServicosRouter.post('/', celebrate({
   [Segments.BODY]: {
     nmPostoServico: Joi.string().required(),
     qtdPessoaDia: Joi.number().required(),
-    stAtivo: Joi.boolean().required()
+    stAtivo: Joi.boolean().required(),
+    idPeriodoServico: Joi.number().required()
   }
 }), postoServicosController.create);
 

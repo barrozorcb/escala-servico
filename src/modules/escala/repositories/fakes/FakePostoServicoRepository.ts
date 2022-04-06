@@ -16,6 +16,14 @@ class PostoServicoRepository implements IPostoServicosRepository {
 
     return postoServico;
   }
+
+  public async findById (id: number): Promise<PostoServico | undefined> {
+
+    const findPostoServico = this.postoServico.find(postoServico => postoServico.id_posto_servico === id);
+
+    return findPostoServico;
+  }
+
   // public async findByEmail(email: string): Promise<User | undefined> {
 
   //   const findUser = this.users.find(user => user.email === email);

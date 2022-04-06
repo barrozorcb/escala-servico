@@ -6,10 +6,12 @@ import { Router } from 'express';
 // import passwordRouter from '@modules/users/infra/http/routes/password.routes';
 // import profileRouter from '@modules/users/infra/http/routes/profile.routes';
 import postoServicosRouter from '@modules/escala/infra/http/routes/postoServicos.routes';
+import periodosServicoRouter from '@modules/escala/infra/http/routes/periodosServico.routes';
 
 const routes = Router();
 
 routes.use('/postoServico', postoServicosRouter);
+routes.use('/periodosServico', periodosServicoRouter);
 // routes.use('/appointments', appointmentsRouter);
 // routes.use('/providers', providersRouter);
 // routes.use('/users', usersRouter);

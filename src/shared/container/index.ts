@@ -18,9 +18,17 @@ import { container } from 'tsyringe';
 import PostoServicosRepository from '@modules/escala/infra/typeorm/repositories/PostoServicosRepository';
 import IPostoServicosRepository from '@modules/escala/repositories/IPostoServicosRepository';
 
+import PeriodosServicoRepository from '@modules/escala/infra/typeorm/repositories/PeriodosServicoRepository';
+import IPeriodosServicoRepository from '@modules/escala/repositories/IPeriodosServicoRepository';
+
 container.registerSingleton<IPostoServicosRepository>(
   'PostoServicosRepository',
   PostoServicosRepository
+);
+
+container.registerSingleton<IPeriodosServicoRepository>(
+  'PeriodosServicoRepository',
+  PeriodosServicoRepository
 );
 // container.registerSingleton<IAppointmentRepository>(
 //   'AppointmentsRepository',

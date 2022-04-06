@@ -7,13 +7,14 @@ import CreatePostoServicoService from '@modules/escala/services/CreatePostoServi
 export default class PostoServicosController {
   public async create (request: Request, response: Response): Promise<Response> {
 
-    const { nmPostoServico, qtdPessoaDia, stAtivo } = request.body;
+    const { nmPostoServico, qtdPessoaDia, stAtivo, idPeriodoServico } = request.body;
     const createPostoServico = container.resolve(CreatePostoServicoService);
 
     const escala = await createPostoServico.execute({
       nmPostoServico,
       qtdPessoaDia,
-      stAtivo
+      stAtivo,
+      idPeriodoServico
     });
 
     return response.json(instanceToInstance(escala));
