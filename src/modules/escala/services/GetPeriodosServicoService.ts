@@ -12,15 +12,7 @@ class GetPeriodosServicoService {
   ) { }
 
   public async execute (): Promise<PeriodoServico[]> {
-
-    // if (nmPostoServico === "") {
-    //   throw new AppError("O campo Nome do Posto de Serviço não pode estar vazio ou nulo.");
-    // }
-
     const periodosServico = this.periodosServicoRepository.findAll();
-    console.log('chegou no service');
-    console.log(periodosServico);
-
     return periodosServico;
   }
 }
